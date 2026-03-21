@@ -1,0 +1,68 @@
+From cb340171399ae73f9b0dadaa3d15c0d11f99b9d1 Mon Sep 17 00:00:00 2001
+From: Val <valentin.jossic@proton.me>
+Date: Sat, 21 Mar 2026 17:24:47 +0100
+Subject: [PATCH] Patch
+
+---
+ layouts/_default/list.html   | 2 +-
+ layouts/_default/single.html | 4 ++--
+ layouts/index.html           | 8 +++++---
+ 3 files changed, 8 insertions(+), 6 deletions(-)
+
+diff --git a/layouts/_default/list.html b/layouts/_default/list.html
+index 7f31021..b14d39a 100644
+--- a/layouts/_default/list.html
++++ b/layouts/_default/list.html
+@@ -2,7 +2,7 @@
+ {{ if isset .Data "Term" }}
+ <h1>Entries tagged - "{{ .Data.Term }}"</h1>
+ {{ else }}
+-<h1 class="page-title">All articles</h1>
++<h1 class="page-title">{{ .Title | .Page.RenderString }}</h1>
+ {{ end }}
+ 
+ <ul class="posts">
+diff --git a/layouts/_default/single.html b/layouts/_default/single.html
+index e50a044..d3d9a7e 100644
+--- a/layouts/_default/single.html
++++ b/layouts/_default/single.html
+@@ -6,7 +6,7 @@
+       <div class="post-content">
+         <div class="title">
+           <h1 class="title">{{ .Title }}</h1>
+-          <div class="meta">Posted on {{ dateFormat ":date_medium" .Date }}{{ if .Draft }} <span class="draft-label">DRAFT</span> {{ end }}</div>
++          <div class="meta">Posté le {{ dateFormat ":date_medium" .Date }}{{ if .Draft }} <span class="draft-label">DRAFT</span> {{ end }}</div>
+         </div>
+         {{ if isset .Params "tldr" }}
+         <div class="tldr">
+@@ -34,7 +34,7 @@
+       <!-- TOC -->
+       {{ if and (isset .Params "toc") (.Params.toc) }}
+       <div class="toc">
+-        <strong>Table of contents:</strong>
++        <strong>Sommaire :</strong>
+         {{ .TableOfContents }}
+       </div>
+       {{ end }}
+diff --git a/layouts/index.html b/layouts/index.html
+index 7ff89eb..71635e7 100644
+--- a/layouts/index.html
++++ b/layouts/index.html
+@@ -15,9 +15,11 @@
+ 				{{ $paginator := .Paginate (where $pages "Params.hidden" "ne" true) }}
+ 				{{ range $paginator.Pages }}
+ 				<section class="list-item">
+-					<h1 class="title"><a href="{{ .RelPermalink }}">{{.Title}}</a></h1>
+-					<time>{{ dateFormat ":date_medium" .Date }}{{ if .Draft }} <span class="draft-label">DRAFT</span> {{ end }}</time>
+-					<br>{{ template "partials/pagedescription.html" . }}
++					<span>
++						<h1 class="title"><a href="{{ .RelPermalink }}">{{.Title}}</a></h1>
++						<time class="item-time">{{ dateFormat ":date_medium" .Date }}{{ if .Draft }} <span class="draft-label">DRAFT</span> {{ end }}</time>
++					</span>
++					{{ template "partials/pagedescription.html" . }}
+ 					<a class="readmore" href="{{ .RelPermalink }}">Read more ⟶</a>
+ 				</section>
+ 				{{ end }}
+-- 
+2.47.3
+
