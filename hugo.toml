@@ -11,13 +11,13 @@ copyright = "© Val"
 	useCDN=false # don't use CDNs for fonts and icons, instead serve them locally.
 	subtitle ='''Bienvenue sur Plume !\
     Je m'appelle Val. Je suis ingénieur en télécom et développeur chez Enedis.\
-    Sur ce site, tu retrouveras des [lettres](/letters), des [articles de blog](/articles) et quelques détails sur mes [projets](/projects).\
+    Sur ce site, tu retrouveras des [lettres](/lettres), des [articles de blog](/articles) et quelques détails sur mes [projets](/projets).\
     \
     Bonne lecture :)
     '''
 	customcss = ["css/first.css"]
     favicon = "favicon.svg"
-    mainSections = ['lettres']
+    mainSections = ['lettres', 'projets']
 
 [pagination]
   pagerSize = 10 # articles per page
