@@ -1,13 +1,13 @@
-From cb340171399ae73f9b0dadaa3d15c0d11f99b9d1 Mon Sep 17 00:00:00 2001
+From f391dc4e505c8c476503c18c65bad9e28ed144ef Mon Sep 17 00:00:00 2001
 From: Val <valentin.jossic@proton.me>
-Date: Sat, 21 Mar 2026 17:24:47 +0100
+Date: Sun, 22 Mar 2026 19:40:17 +0100
 Subject: [PATCH] Patch
 
 ---
- layouts/_default/list.html   | 2 +-
- layouts/_default/single.html | 4 ++--
- layouts/index.html           | 8 +++++---
- 3 files changed, 8 insertions(+), 6 deletions(-)
+ layouts/_default/list.html   |  2 +-
+ layouts/_default/single.html |  4 ++--
+ layouts/index.html           | 10 ++++++----
+ 3 files changed, 9 insertions(+), 7 deletions(-)
 
 diff --git a/layouts/_default/list.html b/layouts/_default/list.html
 index 7f31021..b14d39a 100644
@@ -45,24 +45,26 @@ index e50a044..d3d9a7e 100644
        </div>
        {{ end }}
 diff --git a/layouts/index.html b/layouts/index.html
-index 7ff89eb..71635e7 100644
+index 7ff89eb..42cc3e9 100644
 --- a/layouts/index.html
 +++ b/layouts/index.html
-@@ -15,9 +15,11 @@
+@@ -15,10 +15,12 @@
  				{{ $paginator := .Paginate (where $pages "Params.hidden" "ne" true) }}
  				{{ range $paginator.Pages }}
  				<section class="list-item">
 -					<h1 class="title"><a href="{{ .RelPermalink }}">{{.Title}}</a></h1>
 -					<time>{{ dateFormat ":date_medium" .Date }}{{ if .Draft }} <span class="draft-label">DRAFT</span> {{ end }}</time>
 -					<br>{{ template "partials/pagedescription.html" . }}
+-					<a class="readmore" href="{{ .RelPermalink }}">Read more ⟶</a>
 +					<span>
 +						<h1 class="title"><a href="{{ .RelPermalink }}">{{.Title}}</a></h1>
 +						<time class="item-time">{{ dateFormat ":date_medium" .Date }}{{ if .Draft }} <span class="draft-label">DRAFT</span> {{ end }}</time>
 +					</span>
 +					{{ template "partials/pagedescription.html" . }}
- 					<a class="readmore" href="{{ .RelPermalink }}">Read more ⟶</a>
++					<a class="readmore" href="{{ .RelPermalink }}">Lire ⟶</a>
  				</section>
  				{{ end }}
+ 				{{ template "partials/paginator.html" . }}
 -- 
 2.47.3
 
