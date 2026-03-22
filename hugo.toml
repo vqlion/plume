@@ -11,7 +11,7 @@ copyright = "© Val"
 	useCDN=false # don't use CDNs for fonts and icons, instead serve them locally.
 	subtitle ='''Bienvenue sur Plume !\
     Je m'appelle Val. Je suis ingénieur en télécom et développeur chez Enedis.\
-    Sur ce site, tu retrouveras des [lettres](/lettres), des [articles de blog](/articles) et quelques détails sur mes [projets](/projets).\
+    Sur ce site, tu retrouveras des [lettres](/lettres/), des [articles de blog](/articles/) et quelques détails sur mes [projets](/projets/).\
     \
     Bonne lecture :)
     '''
@@ -49,17 +49,17 @@ weight = 10
 
 [[menu.main]]
 name = 'Lettres'
-url = '/lettres'
+url = '/lettres/'
 weight = 11
 
 [[menu.main]]
 name = 'Articles'
-url = '/articles'
+url = '/articles/'
 weight = 12
 
 [[menu.main]]
 name = 'Projets'
-url = '/projets'
+url = '/projets/'
 weight = 13
 
 [module]
