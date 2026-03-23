@@ -16,7 +16,6 @@ copyright = "© Val"
     Bonne lecture :)
     '''
 	customcss = ["css/first.css"]
-    favicon = "favicon.svg"
     mainSections = ['lettres', 'projets']
 
 [pagination]
