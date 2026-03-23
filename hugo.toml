@@ -5,31 +5,31 @@ title = 'Plume'
 theme = 'archie'
 copyright = "© Val"
 
-
 [params]
 	mode="light" # color-mode → light,dark,toggle or auto
 	useCDN=false # don't use CDNs for fonts and icons, instead serve them locally.
 	subtitle ='''Bienvenue sur Plume !\
     Je m'appelle Val. Je suis ingénieur en télécom et développeur chez Enedis.\
-    Sur ce site, tu retrouveras des [lettres](/lettres/), des [articles de blog](/articles/) et quelques détails sur mes [projets](/projets/).\
+    Tu peux en apprendre un peu plus sur moi sur [mon site](https://jossic.fr).\
+    Sur ce site, tu retrouveras mon [recueil](/recueil/), des [lettres](/lettres/) et des détails sur mes [projets](/projets/).\
     \
     Bonne lecture :)
     '''
 	customcss = ["css/first.css"]
-    mainSections = ['lettres', 'projets']
+    mainSections = ['lettres', 'recueil']
 
 [pagination]
   pagerSize = 10 # articles per page
 
 [[params.social]]
-    name = "GitHub"
-    icon = "github"
-    url = "https://github.com/vqlion"
-
-[[params.social]]
     name = "Website"
     icon = "globe"
     url = "https://jossic.fr"
+
+[[params.social]]
+    name = "GitHub"
+    icon = "github"
+    url = "https://github.com/vqlion"
 
 [[params.social]]
     name = "LinkedIn"
@@ -47,13 +47,13 @@ url = '/'
 weight = 10
 
 [[menu.main]]
-name = 'Lettres'
-url = '/lettres/'
+name = 'Recueil'
+url = '/recueil/'
 weight = 11
 
 [[menu.main]]
-name = 'Articles'
-url = '/articles/'
+name = 'Lettres'
+url = '/lettres/'
 weight = 12
 
 [[menu.main]]

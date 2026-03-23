@@ -1,19 +1,20 @@
-From f391dc4e505c8c476503c18c65bad9e28ed144ef Mon Sep 17 00:00:00 2001
+From 50717f3a6d0408e1663a13a91e3faf43e62e3720 Mon Sep 17 00:00:00 2001
 From: Val <valentin.jossic@proton.me>
-Date: Sun, 22 Mar 2026 19:40:17 +0100
+Date: Mon, 23 Mar 2026 21:56:44 +0100
 Subject: [PATCH] Patch
 
 ---
- layouts/_default/list.html   |  2 +-
+ layouts/_default/list.html   | 30 +++++++++++++++++++-----------
  layouts/_default/single.html |  4 ++--
+ layouts/_default/term.html   |  2 +-
  layouts/index.html           | 10 ++++++----
- 3 files changed, 9 insertions(+), 7 deletions(-)
+ 4 files changed, 28 insertions(+), 18 deletions(-)
 
 diff --git a/layouts/_default/list.html b/layouts/_default/list.html
-index 7f31021..b14d39a 100644
+index 7f31021..4193cdb 100644
 --- a/layouts/_default/list.html
 +++ b/layouts/_default/list.html
-@@ -2,7 +2,7 @@
+@@ -2,16 +2,24 @@
  {{ if isset .Data "Term" }}
  <h1>Entries tagged - "{{ .Data.Term }}"</h1>
  {{ else }}
@@ -21,7 +22,35 @@ index 7f31021..b14d39a 100644
 +<h1 class="page-title">{{ .Title | .Page.RenderString }}</h1>
  {{ end }}
  
- <ul class="posts">
+-<ul class="posts">
+-	{{- range .Data.Pages -}}
+-		{{- if (not (in (.Site.Params.excludedTypes | default (slice "page")) .Type)) -}}
+-		<li class="post">
+-			<a href="{{ .RelPermalink }}">{{.Title}}</a> <span class="meta">{{ dateFormat ":date_medium" .Date }}{{ if .Draft }} <span class="draft-label">DRAFT</span> {{ end }}</span>
+-		</li>
+-		{{- end -}}
+-	{{- end -}}
+-</ul>
+-{{ end }}
++{{ $pages := .Data.Pages }}
++{{ $paginator := .Paginate (where $pages "Params.hidden" "ne" true) }}
++{{- range $paginator.Pages -}}
++{{- if (not (in (.Site.Params.excludedTypes | default (slice "page")) .Type)) -}}
++<section class="list-item">
++	<span>
++		<h1 class="title"><a href="{{ .RelPermalink }}">{{.Title}}</a></h1>
++		<time class="item-time">{{ dateFormat ":date_medium" .Date }}{{ if .Draft }} <span
++				class="draft-label">DRAFT</span> {{ end }}</time>
++	</span>
++	{{ template "partials/pagedescription.html" . }}
++	<a class="readmore" href="{{ .RelPermalink }}">Lire ⟶</a>
++</section>
++{{- end -}}
++{{- end -}}
++{{ template "partials/paginator.html" . }}
++
++{{ end }}
+\ No newline at end of file
 diff --git a/layouts/_default/single.html b/layouts/_default/single.html
 index e50a044..d3d9a7e 100644
 --- a/layouts/_default/single.html
@@ -44,6 +73,18 @@ index e50a044..d3d9a7e 100644
          {{ .TableOfContents }}
        </div>
        {{ end }}
+diff --git a/layouts/_default/term.html b/layouts/_default/term.html
+index 7f31021..3472f53 100644
+--- a/layouts/_default/term.html
++++ b/layouts/_default/term.html
+@@ -1,6 +1,6 @@
+ {{ define "main" }}
+ {{ if isset .Data "Term" }}
+-<h1>Entries tagged - "{{ .Data.Term }}"</h1>
++<h1>Tag "{{ .Data.Term }}"</h1>
+ {{ else }}
+ <h1 class="page-title">All articles</h1>
+ {{ end }}
 diff --git a/layouts/index.html b/layouts/index.html
 index 7ff89eb..42cc3e9 100644
 --- a/layouts/index.html
