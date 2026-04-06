@@ -21,7 +21,7 @@
 .list-item {
     margin-top: 1.5rem;
     padding: 1rem;
-    border: 0.15rem dotted var(--color-border, #663399);;
+    border: 0.15rem dotted var(--color-border, #663399);
 }
 
 .list-item span {
@@ -31,4 +31,15 @@
 
 .list-item .draft-label {
     display: none;
+}
+
+.dxfl-tag {
+    text-decoration: none;
+    border-bottom: none;
+    border-block-end: none;
+}
+
+.dxfl-tag:hover {
+    outline: none;
+    background-color: transparent;
 }

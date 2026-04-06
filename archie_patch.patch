@@ -1,6 +1,6 @@
-From 50717f3a6d0408e1663a13a91e3faf43e62e3720 Mon Sep 17 00:00:00 2001
+From 96ae52b2bafe509f8e2528754bf68117ddb2d154 Mon Sep 17 00:00:00 2001
 From: Val <valentin.jossic@proton.me>
-Date: Mon, 23 Mar 2026 21:56:44 +0100
+Date: Mon, 6 Apr 2026 20:56:00 +0200
 Subject: [PATCH] Patch
 
 ---
@@ -8,7 +8,8 @@ Subject: [PATCH] Patch
  layouts/_default/single.html |  4 ++--
  layouts/_default/term.html   |  2 +-
  layouts/index.html           | 10 ++++++----
- 4 files changed, 28 insertions(+), 18 deletions(-)
+ layouts/partials/footer.html |  4 +++-
+ 5 files changed, 31 insertions(+), 19 deletions(-)
 
 diff --git a/layouts/_default/list.html b/layouts/_default/list.html
 index 7f31021..4193cdb 100644
@@ -106,6 +107,22 @@ index 7ff89eb..42cc3e9 100644
  				</section>
  				{{ end }}
  				{{ template "partials/paginator.html" . }}
+diff --git a/layouts/partials/footer.html b/layouts/partials/footer.html
+index fd710f2..30542e9 100644
+--- a/layouts/partials/footer.html
++++ b/layouts/partials/footer.html
+@@ -11,8 +11,10 @@
+   </div>
+   <div class="footer-info">
+     {{ dateFormat "2006" now }} {{ with .Site.Copyright }} {{ . }} | {{ end }} <a
+-      href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
++      href="https://github.com/athul/archie">Archie Theme</a> | Fait avec <a href="https://gohugo.io">Hugo</a>
+   </div>
++  |
++  <a class="dxfl-tag" href="https://deuxfleurs.fr/"><img src="/deuxfleurs_fr.png" alt="Badge indiquant que ce site est hébergé par l'association Deuxfleurs" title="Site hébergé par Deuxfleurs"></a>
+ </footer>
+ {{ if not hugo.IsServer }}
+ {{ template "_internal/google_analytics.html" . }}
 -- 
 2.47.3
 
