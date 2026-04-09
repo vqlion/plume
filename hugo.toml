@@ -11,7 +11,7 @@ copyright = "© Val"
 	subtitle ='''Bienvenue sur Plume !\
     Je m'appelle Val. Je suis ingénieur en télécom et développeur chez Enedis.\
     Tu peux en apprendre un peu plus sur moi sur [mon site](https://jossic.fr).\
-    Sur ce site, tu retrouveras mon [recueil](/recueil/), des [lettres](/lettres/) et des détails sur mes [projets](/projets/).\
+    Sur ce site, tu retrouveras des [photos](/photos/), mon [recueil](/recueil/), des [lettres](/lettres/) et des détails sur mes [projets](/projets/).\
     \
     Bonne lecture :)
     '''
@@ -47,19 +47,24 @@ url = '/'
 weight = 10
 
 [[menu.main]]
+name = 'Photos'
+url = '/photos/'
+weight = 20
+
+[[menu.main]]
 name = 'Recueil'
 url = '/recueil/'
-weight = 11
+weight = 30
 
 [[menu.main]]
 name = 'Lettres'
 url = '/lettres/'
-weight = 12
+weight = 40
 
 [[menu.main]]
 name = 'Projets'
 url = '/projets/'
-weight = 13
+weight = 50
 
 [module]
   [module.hugoVersion]
