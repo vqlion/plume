@@ -4,6 +4,7 @@ timeZone = 'Europe/Paris'
 title = 'Plume'
 theme = 'archie'
 copyright = "© Val"
+summaryLength = 10
 
 [params]
 	mode="light" # color-mode → light,dark,toggle or auto
