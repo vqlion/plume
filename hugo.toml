@@ -10,9 +10,9 @@ summaryLength = 10
 	mode="light" # color-mode → light,dark,toggle or auto
 	useCDN=false # don't use CDNs for fonts and icons, instead serve them locally.
 	subtitle ='''Bienvenue sur Plume !\
-    Je m'appelle Val. Je suis ingénieur en télécom et développeur chez Enedis.\
-    Tu peux en apprendre un peu plus sur moi sur [mon site](https://jossic.fr).\
-    Sur ce site, tu retrouveras des [photos](/photos/), mon [recueil](/recueil/), des [lettres](/lettres/) et des détails sur mes [projets](/projets/).\
+    Je m'appelle [Val](https://jossic.fr). Je suis ingénieur en télécom et développeur, et j'écris, je fais de la musique et je prends des photos sur mon temps libre.\
+    Sur ce site, tu retrouveras mon [recueil](/recueil/), des [lettres](/lettres/) et des détails sur mes [projets](/projets/).\
+    Tu peux aussi retrouver mes photos dans ma [galerie](https://galerie.jossic.fr/).\
     \
     Bonne lecture :)
     '''
@@ -49,7 +49,7 @@ weight = 10
 
 [[menu.main]]
 name = 'Photos'
-url = '/photos/'
+url = 'https://galerie.jossic.fr'
 weight = 20
 
 [[menu.main]]
