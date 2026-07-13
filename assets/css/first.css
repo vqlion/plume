@@ -44,7 +44,7 @@
     background-color: transparent;
 }
 
-.body p {
+.body p, .description p, .site-description p {
     text-align: justify;
     text-justify: inter-word;
 }
